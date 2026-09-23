@@ -1,0 +1,235 @@
+{
+  "municipality": "Model Municipal Corporation",
+  "version": "1.0.0-prototype",
+  "disclaimer": "[PROTOTYPE_ASSUMPTION] Synthetic reference gazetteer for development and testing",
+  "zones": [
+    {
+      "zone_id": "ZONE_CENTRAL",
+      "zone_name": "Central Zone",
+      "zonal_office_address": "Zone Office, Civic Centre, Main Road",
+      "wards": [
+        {
+          "ward_id": "WARD_101",
+          "ward_number": 101,
+          "ward_name": "Shivaji Nagar",
+          "localities": [
+            "Shivaji Nagar Sector A",
+            "Shivaji Nagar Sector B",
+            "Old Market",
+            "Railway Colony"
+          ],
+          "aliases": [
+            "shivaji nagar",
+            "shivajinagar",
+            "purana bazaar",
+            "railway station road"
+          ],
+          "critical_landmarks": [
+            { "name": "District Civil Hospital", "type": "hospital", "priority_weight": 1.5 },
+            { "name": "Government Senior Secondary School", "type": "school", "priority_weight": 1.4 },
+            { "name": "Central Railway Station", "type": "transit", "priority_weight": 1.3 }
+          ]
+        },
+        {
+          "ward_id": "WARD_102",
+          "ward_number": 102,
+          "ward_name": "Gandhi Chowk",
+          "localities": [
+            "Gandhi Chowk",
+            "Clock Tower Market",
+            "Subhash Marg",
+            "Nehru Park Enclave"
+          ],
+          "aliases": [
+            "ghanta ghar",
+            "gandhi circle",
+            "subhash chowk",
+            "nehru park"
+          ],
+          "critical_landmarks": [
+            { "name": "City Municipal Dispensary", "type": "dispensary", "priority_weight": 1.3 },
+            { "name": "Clock Tower Public Library", "type": "public_facility", "priority_weight": 1.1 }
+          ]
+        },
+        {
+          "ward_id": "WARD_10",
+          "ward_number": 10,
+          "ward_name": "Railway Station Area",
+          "localities": [
+            "Railway Station",
+            "Platform 1 Side"
+          ],
+          "aliases": [
+            "railway station",
+            "bhopal station"
+          ],
+          "critical_landmarks": [
+            { "name": "Main Railway Station", "type": "transit", "priority_weight": 1.5 }
+          ]
+        },
+        {
+          "ward_id": "WARD_40",
+          "ward_number": 40,
+          "ward_name": "Board Office Area",
+          "localities": [
+            "Board Office",
+            "Board Office Square"
+          ],
+          "aliases": [
+            "board office",
+            "mp board"
+          ],
+          "critical_landmarks": [
+            { "name": "Board Office", "type": "government", "priority_weight": 1.4 }
+          ]
+        }
+      ]
+    },
+    {
+      "zone_id": "ZONE_SOUTH",
+      "zone_name": "South Zone",
+      "zonal_office_address": "South Zone Office, Green Park Complex",
+      "wards": [
+        {
+          "ward_id": "WARD_201",
+          "ward_number": 201,
+          "ward_name": "Vasant Vihar",
+          "localities": [
+            "Vasant Vihar Block C",
+            "Vasant Kunj Extension",
+            "Lakeview Colony"
+          ],
+          "aliases": [
+            "vasant vihar",
+            "lake view",
+            "south lake"
+          ],
+          "critical_landmarks": [
+            { "name": "St. Mary's School", "type": "school", "priority_weight": 1.4 },
+            { "name": "Vasant Vihar Health Post", "type": "health_post", "priority_weight": 1.3 }
+          ]
+        },
+        {
+          "ward_id": "WARD_202",
+          "ward_number": 202,
+          "ward_name": "Indira Industrial Area",
+          "localities": [
+            "Industrial Area Phase 1",
+            "Labour Colony",
+            "Truck Terminal"
+          ],
+          "aliases": [
+            "industrial estate",
+            "phase 1 transport nagar",
+            "truck stand",
+            "indira nagar"
+          ],
+          "critical_landmarks": [
+            { "name": "ESI Hospital", "type": "hospital", "priority_weight": 1.5 },
+            { "name": "CETP Water Treatment Plant", "type": "utility", "priority_weight": 1.6 }
+          ]
+        },
+        {
+          "ward_id": "WARD_14",
+          "ward_number": 14,
+          "ward_name": "Shahpura",
+          "localities": [
+            "Shahpura",
+            "Shahpura Sector B",
+            "Shahpura Lake"
+          ],
+          "aliases": [
+            "shahpura",
+            "वार्ड 14",
+            "ward 14"
+          ],
+          "critical_landmarks": [
+            { "name": "Shahpura Lake", "type": "park", "priority_weight": 1.2 }
+          ]
+        },
+        {
+          "ward_id": "WARD_48",
+          "ward_number": 48,
+          "ward_name": "Arera Colony",
+          "localities": [
+            "Arera Colony",
+            "Arera Colony E-7",
+            "10 Number Market"
+          ],
+          "aliases": [
+            "arera colony",
+            "10 number market",
+            "arera"
+          ],
+          "critical_landmarks": [
+            { "name": "10 Number Market", "type": "commercial", "priority_weight": 1.3 }
+          ]
+        },
+        {
+          "ward_id": "WARD_45",
+          "ward_number": 45,
+          "ward_name": "Bittan Market",
+          "localities": [
+            "Bittan Market",
+            "Bittan Market Taxi Stand",
+            "BDA Complex"
+          ],
+          "aliases": [
+            "bittan market",
+            "bittan bazaar",
+            "bda complex"
+          ],
+          "critical_landmarks": [
+            { "name": "Bittan Market Ground", "type": "commercial", "priority_weight": 1.2 }
+          ]
+        }
+      ]
+    },
+    {
+      "zone_id": "ZONE_NORTH",
+      "zone_name": "North Zone",
+      "zonal_office_address": "North Zone Office",
+      "wards": [
+        {
+          "ward_id": "WARD_15",
+          "ward_number": 15,
+          "ward_name": "Karond",
+          "localities": [
+            "Karond",
+            "Karond Chauraha"
+          ],
+          "aliases": [
+            "karond",
+            "karond mandi"
+          ],
+          "critical_landmarks": [
+            { "name": "Karond Mandi", "type": "commercial", "priority_weight": 1.3 }
+          ]
+        }
+      ]
+    },
+    {
+      "zone_id": "ZONE_EAST",
+      "zone_name": "East Zone",
+      "zonal_office_address": "East Zone Office",
+      "wards": [
+        {
+          "ward_id": "WARD_60",
+          "ward_number": 60,
+          "ward_name": "Govindpura",
+          "localities": [
+            "Govindpura",
+            "Govindpura Industrial Area"
+          ],
+          "aliases": [
+            "govindpura",
+            "govind pura"
+          ],
+          "critical_landmarks": [
+            { "name": "BHEL Gate", "type": "industry", "priority_weight": 1.4 }
+          ]
+        }
+      ]
+    }
+  ]
+}

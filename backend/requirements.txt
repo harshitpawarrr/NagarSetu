@@ -1,0 +1,22 @@
+# NagarSetu Backend Dependencies
+# Minimal, focused dependencies for FastAPI + Pydantic v2 + Gemini
+
+# Core Web Framework & Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+python-multipart>=0.0.9
+
+# Data Processing & Storage (For future phases)
+sqlalchemy[asyncio]>=2.0.28
+asyncpg>=0.29.0
+
+# AI & Multimodal SDK (For future phases)
+google-genai>=0.1.0
+
+# Testing & Utilities
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+httpx>=0.27.0
+python-dotenv>=1.0.1

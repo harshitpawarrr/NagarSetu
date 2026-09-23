@@ -1,0 +1,85 @@
+Total Records: 30
+Dept Mismatches: 18
+Cat Mismatches:  18
+Urg Mismatches:  14
+Loc Mismatches:  5
+
+--- DEPARTMENT MISMATCH DETAILS ---
+ID: CMP-TEST-002 | GT: DEPT_RDS | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: सिटी स्कूल एमपी नगर के पास बहुत गहरा गड्ढा है सड़क पर
+ID: CMP-TEST-003 | GT: DEPT_RDS | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Road damaged near City School gate in MP Nagar
+ID: CMP-TEST-005 | GT: DEPT_WSS | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: खुला मैनहोल बिना किसी ढक्कन के एमपी नगर में
+ID: CMP-TEST-007 | GT: DEPT_WSS | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: शिवाजी नगर सेक्टर ए में पीने के पानी का पाइप फट गया है
+ID: CMP-TEST-009 | GT: DEPT_ELEC | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Streetlights non-functional from Clock Tower to Subhash Marg in Gandhi Chowk
+ID: CMP-TEST-010 | GT: DEPT_ELEC | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: गांधी चौक क्लॉक टावर के पास सारी स्ट्रीट लाइटें बंद हैं
+ID: CMP-TEST-015 | GT: DEPT_ELEC | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Live electrical wire snapped and hanging low near St Mary School in Vasant Vihar
+ID: CMP-TEST-016 | GT: DEPT_ELEC | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: बिजली का नंगा तार टूटकर रास्ते पर लटक रहा है वसंत विहार में
+ID: CMP-TEST-017 | GT: DEPT_WSS | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Sewage drain backed up and dark black water flooding into basements in Indira Industrial Area
+ID: CMP-TEST-018 | GT: DEPT_WSS | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: इंदिरा इंडस्ट्रियल एरिया में नाली का गंदा काला पानी बेसमेंट में भर रहा है
+ID: CMP-TEST-019 | GT: DEPT_HORT | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Broken children slide and damaged swings in Green Park botanical garden
+ID: CMP-TEST-020 | GT: DEPT_PH | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Stagnant cesspool of rainwater behind vegetable mandi in Nehru Market with mosquitoes
+ID: CMP-TEST-023 | GT: DEPT_WSS | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Low water pressure in residential taps in Arera Colony E-7
+ID: CMP-TEST-024 | GT: DEPT_HORT | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Large neem tree branch fallen blocking driveway in BDA Complex
+ID: CMP-TEST-025 | GT: DEPT_ELEC | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Sodium vapor lamps burning continuously in daytime on Kolar Road
+ID: CMP-TEST-026 | GT: DEPT_TOWN | Pred: DEPT_RDS | Terms: ['footpath']
+    Text: Illegal permanent concrete construction on designated public footpath in New Market
+ID: CMP-TEST-029 | GT: DEPT_PH | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Foul chemical stench emanating from open industrial drain in Govindpura Sector C
+ID: CMP-TEST-030 | GT: DEPT_ELEC | Pred: DEPT_SWM | Terms: ['[KEYWORD_FALLBACK]']
+    Text: Traffic signal lights blacked out at Board Office intersection causing gridlock
+
+--- URGENCY MISMATCH DETAILS ---
+ID: CMP-TEST-001 | GT: MEDIUM | Pred: LOW
+    Text: Large pothole outside City School main gate in MP Nagar
+ID: CMP-TEST-002 | GT: MEDIUM | Pred: LOW
+    Text: सिटी स्कूल एमपी नगर के पास बहुत गहरा गड्ढा है सड़क पर
+ID: CMP-TEST-003 | GT: MEDIUM | Pred: LOW
+    Text: Road damaged near City School gate in MP Nagar
+ID: CMP-TEST-005 | GT: CRITICAL | Pred: LOW
+    Text: खुला मैनहोल बिना किसी ढक्कन के एमपी नगर में
+ID: CMP-TEST-015 | GT: HIGH | Pred: CRITICAL
+    Text: Live electrical wire snapped and hanging low near St Mary School in Vasant Vihar
+ID: CMP-TEST-016 | GT: HIGH | Pred: LOW
+    Text: बिजली का नंगा तार टूटकर रास्ते पर लटक रहा है वसंत विहार में
+ID: CMP-TEST-018 | GT: HIGH | Pred: LOW
+    Text: इंदिरा इंडस्ट्रियल एरिया में नाली का गंदा काला पानी बेसमेंट में भर रहा है
+ID: CMP-TEST-022 | GT: HIGH | Pred: LOW
+    Text: Dead animal carcass rotting on median divider opposite Railway Station
+ID: CMP-TEST-023 | GT: MEDIUM | Pred: LOW
+    Text: Low water pressure in residential taps in Arera Colony E-7
+ID: CMP-TEST-024 | GT: MEDIUM | Pred: LOW
+    Text: Large neem tree branch fallen blocking driveway in BDA Complex
+ID: CMP-TEST-027 | GT: LOW | Pred: MEDIUM
+    Text: Construction debris and malba dumped in front of dispensary in Shahpura Sector B
+ID: CMP-TEST-028 | GT: MEDIUM | Pred: LOW
+    Text: Choked storm water drain causing waterlogging near bus stop in Karond
+ID: CMP-TEST-029 | GT: HIGH | Pred: MEDIUM
+    Text: Foul chemical stench emanating from open industrial drain in Govindpura Sector C
+ID: CMP-TEST-030 | GT: HIGH | Pred: LOW
+    Text: Traffic signal lights blacked out at Board Office intersection causing gridlock
+
+--- LOCALITY MISMATCH DETAILS ---
+ID: CMP-TEST-022 | GT: Railway Station (Ward 10) | Pred: UNKNOWN (None)
+    Text: Dead animal carcass rotting on median divider opposite Railway Station
+ID: CMP-TEST-024 | GT: BDA Complex (Ward 45) | Pred: UNKNOWN (None)
+    Text: Large neem tree branch fallen blocking driveway in BDA Complex
+ID: CMP-TEST-028 | GT: Karond (Ward 15) | Pred: UNKNOWN (None)
+    Text: Choked storm water drain causing waterlogging near bus stop in Karond
+ID: CMP-TEST-029 | GT: Govindpura (Ward 60) | Pred: UNKNOWN (None)
+    Text: Foul chemical stench emanating from open industrial drain in Govindpura Sector C
+ID: CMP-TEST-030 | GT: Board Office (Ward 40) | Pred: UNKNOWN (None)
+    Text: Traffic signal lights blacked out at Board Office intersection causing gridlock

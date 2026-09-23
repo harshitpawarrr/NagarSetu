@@ -1,0 +1,574 @@
+[
+  {
+    "id": "CMP-TEST-001",
+    "text": "Large pothole outside City School main gate in MP Nagar",
+    "gt_dept": "DEPT_RDS",
+    "pred_dept": "DEPT_RDS",
+    "d_ok": true,
+    "gt_cat": "CAT_ROAD_MAINTENANCE",
+    "pred_cat": "CAT_ROAD_MAINTENANCE",
+    "c_ok": true,
+    "gt_urg": "MEDIUM",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "MP Nagar (Ward 42)",
+    "pred_loc": "MP Nagar (Ward 42)",
+    "l_ok": true,
+    "terms": [
+      "pothole"
+    ]
+  },
+  {
+    "id": "CMP-TEST-002",
+    "text": "सिटी स्कूल एमपी नगर के पास बहुत गहरा गड्ढा है सड़क पर",
+    "gt_dept": "DEPT_RDS",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_ROAD_MAINTENANCE",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "MEDIUM",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "MP Nagar (Ward 42)",
+    "pred_loc": "MP Nagar (Ward 42)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-003",
+    "text": "Road damaged near City School gate in MP Nagar",
+    "gt_dept": "DEPT_RDS",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_ROAD_MAINTENANCE",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "MEDIUM",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "MP Nagar (Ward 42)",
+    "pred_loc": "MP Nagar (Ward 42)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-004",
+    "text": "Open manhole cover missing on main road in MP Nagar Zone 1",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_WSS",
+    "d_ok": true,
+    "gt_cat": "CAT_ROAD_MAINTENANCE",
+    "pred_cat": "CAT_DRAINAGE_SEWAGE",
+    "c_ok": false,
+    "gt_urg": "CRITICAL",
+    "pred_urg": "CRITICAL",
+    "u_ok": true,
+    "gt_loc": "MP Nagar (Ward 42)",
+    "pred_loc": "MP Nagar (Ward 42)",
+    "l_ok": true,
+    "terms": [
+      "manhole"
+    ]
+  },
+  {
+    "id": "CMP-TEST-005",
+    "text": "खुला मैनहोल बिना किसी ढक्कन के एमपी नगर में",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_ROAD_MAINTENANCE",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "CRITICAL",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "MP Nagar (Ward 42)",
+    "pred_loc": "MP Nagar (Ward 42)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-006",
+    "text": "Major drinking water pipeline burst in Shivaji Nagar Sector A",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_WSS",
+    "d_ok": true,
+    "gt_cat": "CAT_WATER_SUPPLY",
+    "pred_cat": "CAT_WATER_SUPPLY",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Shivaji Nagar (Ward 101)",
+    "pred_loc": "Shivaji Nagar (Ward 101)",
+    "l_ok": true,
+    "terms": [
+      "pipeline"
+    ]
+  },
+  {
+    "id": "CMP-TEST-007",
+    "text": "शिवाजी नगर सेक्टर ए में पीने के पानी का पाइप फट गया है",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_WATER_SUPPLY",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Shivaji Nagar (Ward 101)",
+    "pred_loc": "Shivaji Nagar (Ward 101)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-008",
+    "text": "Water pipeline leakage near Shivaji Nagar bus stop",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_WSS",
+    "d_ok": true,
+    "gt_cat": "CAT_WATER_SUPPLY",
+    "pred_cat": "CAT_WATER_SUPPLY",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Shivaji Nagar (Ward 101)",
+    "pred_loc": "Shivaji Nagar (Ward 101)",
+    "l_ok": true,
+    "terms": [
+      "leakage",
+      "pipeline"
+    ]
+  },
+  {
+    "id": "CMP-TEST-009",
+    "text": "Streetlights non-functional from Clock Tower to Subhash Marg in Gandhi Chowk",
+    "gt_dept": "DEPT_ELEC",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_STREET_LIGHTING",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Gandhi Chowk (Ward 102)",
+    "pred_loc": "Gandhi Chowk (Ward 102)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-010",
+    "text": "गांधी चौक क्लॉक टावर के पास सारी स्ट्रीट लाइटें बंद हैं",
+    "gt_dept": "DEPT_ELEC",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_STREET_LIGHTING",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Gandhi Chowk (Ward 102)",
+    "pred_loc": "Gandhi Chowk (Ward 102)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-011",
+    "text": "Dark street near Clock Tower Gandhi Chowk lights not working",
+    "gt_dept": "DEPT_ELEC",
+    "pred_dept": "DEPT_ELEC",
+    "d_ok": true,
+    "gt_cat": "CAT_STREET_LIGHTING",
+    "pred_cat": "CAT_STREET_LIGHTING",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Gandhi Chowk (Ward 102)",
+    "pred_loc": "Gandhi Chowk (Ward 102)",
+    "l_ok": true,
+    "terms": [
+      "dark street"
+    ]
+  },
+  {
+    "id": "CMP-TEST-012",
+    "text": "Community garbage bin overflowing in Vasant Vihar Block C",
+    "gt_dept": "DEPT_SWM",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": true,
+    "gt_cat": "CAT_GARBAGE_COLLECTION",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Vasant Vihar (Ward 201)",
+    "pred_loc": "Vasant Vihar (Ward 201)",
+    "l_ok": true,
+    "terms": [
+      "garbage"
+    ]
+  },
+  {
+    "id": "CMP-TEST-013",
+    "text": "वसंत विहार ब्लॉक सी में कचरा पेटी भर कर सड़क पर फैल रहा है",
+    "gt_dept": "DEPT_SWM",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": true,
+    "gt_cat": "CAT_GARBAGE_COLLECTION",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Vasant Vihar (Ward 201)",
+    "pred_loc": "Vasant Vihar (Ward 201)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-014",
+    "text": "Garbage dumped on road in Vasant Vihar Block C",
+    "gt_dept": "DEPT_SWM",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": true,
+    "gt_cat": "CAT_GARBAGE_COLLECTION",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Vasant Vihar (Ward 201)",
+    "pred_loc": "Vasant Vihar (Ward 201)",
+    "l_ok": true,
+    "terms": [
+      "garbage"
+    ]
+  },
+  {
+    "id": "CMP-TEST-015",
+    "text": "Live electrical wire snapped and hanging low near St Mary School in Vasant Vihar",
+    "gt_dept": "DEPT_ELEC",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_STREET_LIGHTING",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "HIGH",
+    "pred_urg": "CRITICAL",
+    "u_ok": false,
+    "gt_loc": "Vasant Vihar (Ward 201)",
+    "pred_loc": "Vasant Vihar (Ward 201)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-016",
+    "text": "बिजली का नंगा तार टूटकर रास्ते पर लटक रहा है वसंत विहार में",
+    "gt_dept": "DEPT_ELEC",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_STREET_LIGHTING",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "HIGH",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "Vasant Vihar (Ward 201)",
+    "pred_loc": "Vasant Vihar (Ward 201)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-017",
+    "text": "Sewage drain backed up and dark black water flooding into basements in Indira Industrial Area",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_DRAINAGE_SEWAGE",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "HIGH",
+    "pred_urg": "HIGH",
+    "u_ok": true,
+    "gt_loc": "Indira Industrial Area (Ward 202)",
+    "pred_loc": "Indira Industrial Area (Ward 202)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-018",
+    "text": "इंदिरा इंडस्ट्रियल एरिया में नाली का गंदा काला पानी बेसमेंट में भर रहा है",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_DRAINAGE_SEWAGE",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "HIGH",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "Indira Industrial Area (Ward 202)",
+    "pred_loc": "Indira Industrial Area (Ward 202)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-019",
+    "text": "Broken children slide and damaged swings in Green Park botanical garden",
+    "gt_dept": "DEPT_HORT",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_PARK_MAINTENANCE",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Green Park (Ward 203)",
+    "pred_loc": "Green Park (Ward 203)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-020",
+    "text": "Stagnant cesspool of rainwater behind vegetable mandi in Nehru Market with mosquitoes",
+    "gt_dept": "DEPT_PH",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_WATER_SUPPLY",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Nehru Market (Ward 103)",
+    "pred_loc": "Nehru Market (Ward 103)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-021",
+    "text": "Broken footpath pavement blocks on Court Road in Civil Lines",
+    "gt_dept": "DEPT_RDS",
+    "pred_dept": "DEPT_RDS",
+    "d_ok": true,
+    "gt_cat": "CAT_ROAD_MAINTENANCE",
+    "pred_cat": "CAT_ROAD_MAINTENANCE",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Civil Lines (Ward 301)",
+    "pred_loc": "Civil Lines (Ward 301)",
+    "l_ok": true,
+    "terms": [
+      "footpath"
+    ]
+  },
+  {
+    "id": "CMP-TEST-022",
+    "text": "Dead animal carcass rotting on median divider opposite Railway Station",
+    "gt_dept": "DEPT_SWM",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": true,
+    "gt_cat": "CAT_GARBAGE_COLLECTION",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": true,
+    "gt_urg": "HIGH",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "Railway Station (Ward 10)",
+    "pred_loc": "UNKNOWN (None)",
+    "l_ok": null,
+    "terms": [
+      "dead animal",
+      "carcass"
+    ]
+  },
+  {
+    "id": "CMP-TEST-023",
+    "text": "Low water pressure in residential taps in Arera Colony E-7",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_WATER_SUPPLY",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "MEDIUM",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "Arera Colony (Ward 104)",
+    "pred_loc": "Arera Colony (Ward 48)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-024",
+    "text": "Large neem tree branch fallen blocking driveway in BDA Complex",
+    "gt_dept": "DEPT_HORT",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_PARK_MAINTENANCE",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "MEDIUM",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "BDA Complex (Ward 45)",
+    "pred_loc": "UNKNOWN (None)",
+    "l_ok": null,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-025",
+    "text": "Sodium vapor lamps burning continuously in daytime on Kolar Road",
+    "gt_dept": "DEPT_ELEC",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_STREET_LIGHTING",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "Kolar Road (Ward 80)",
+    "pred_loc": "Kolar Road (Ward 80)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-026",
+    "text": "Illegal permanent concrete construction on designated public footpath in New Market",
+    "gt_dept": "DEPT_TOWN",
+    "pred_dept": "DEPT_RDS",
+    "d_ok": false,
+    "gt_cat": "CAT_ROAD_MAINTENANCE",
+    "pred_cat": "CAT_ROAD_MAINTENANCE",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "LOW",
+    "u_ok": true,
+    "gt_loc": "New Market (Ward 25)",
+    "pred_loc": "New Market (Ward 30)",
+    "l_ok": true,
+    "terms": [
+      "footpath"
+    ]
+  },
+  {
+    "id": "CMP-TEST-027",
+    "text": "Construction debris and malba dumped in front of dispensary in Shahpura Sector B",
+    "gt_dept": "DEPT_SWM",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": true,
+    "gt_cat": "CAT_GARBAGE_COLLECTION",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": true,
+    "gt_urg": "LOW",
+    "pred_urg": "MEDIUM",
+    "u_ok": false,
+    "gt_loc": "Shahpura (Ward 50)",
+    "pred_loc": "Shahpura (Ward 14)",
+    "l_ok": true,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-028",
+    "text": "Choked storm water drain causing waterlogging near bus stop in Karond",
+    "gt_dept": "DEPT_WSS",
+    "pred_dept": "DEPT_WSS",
+    "d_ok": true,
+    "gt_cat": "CAT_DRAINAGE_SEWAGE",
+    "pred_cat": "CAT_DRAINAGE_SEWAGE",
+    "c_ok": true,
+    "gt_urg": "MEDIUM",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "Karond (Ward 15)",
+    "pred_loc": "UNKNOWN (None)",
+    "l_ok": null,
+    "terms": [
+      "waterlogging"
+    ]
+  },
+  {
+    "id": "CMP-TEST-029",
+    "text": "Foul chemical stench emanating from open industrial drain in Govindpura Sector C",
+    "gt_dept": "DEPT_PH",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_DRAINAGE_SEWAGE",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "HIGH",
+    "pred_urg": "MEDIUM",
+    "u_ok": false,
+    "gt_loc": "Govindpura (Ward 60)",
+    "pred_loc": "UNKNOWN (None)",
+    "l_ok": null,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  },
+  {
+    "id": "CMP-TEST-030",
+    "text": "Traffic signal lights blacked out at Board Office intersection causing gridlock",
+    "gt_dept": "DEPT_ELEC",
+    "pred_dept": "DEPT_SWM",
+    "d_ok": false,
+    "gt_cat": "CAT_STREET_LIGHTING",
+    "pred_cat": "CAT_GARBAGE_COLLECTION",
+    "c_ok": false,
+    "gt_urg": "HIGH",
+    "pred_urg": "LOW",
+    "u_ok": false,
+    "gt_loc": "Board Office (Ward 40)",
+    "pred_loc": "UNKNOWN (None)",
+    "l_ok": null,
+    "terms": [
+      "[KEYWORD_FALLBACK]"
+    ]
+  }
+]

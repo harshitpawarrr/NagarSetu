@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0",
+  "disclaimer": "[PROTOTYPE_ASSUMPTION] Deterministic public safety urgency rules",
+  "urgency_levels": ["CRITICAL", "HIGH", "MEDIUM", "LOW"],
+  "rules": [
+    {
+      "rule_id": "URG_RULE_001",
+      "name": "Live Electrical Hazard",
+      "conditions": {
+        "keywords": ["sparking", "exposed wire", "live wire", "live electrical wire", "exposed live", "exposed electrical wire", "electric shock", "transformer spark", "hanging wire", "damaged pole"],
+        "category_matches": ["CAT_STREET_LIGHTING"]
+      },
+      "enforced_urgency": "CRITICAL",
+      "urgency_score": 0.98,
+      "urgency_reason": "Severe public life-safety hazard: Active electrical spark or exposed wire reported in public pedestrian zone.",
+      "mandatory_override": true
+    },
+    {
+      "rule_id": "URG_RULE_002",
+      "name": "Missing Manhole or Deep Sinkhole",
+      "conditions": {
+        "keywords": ["missing manhole", "open manhole", "broken manhole cover", "deep sinkhole", "cave in", "gaddha deep"],
+        "category_matches": ["CAT_DRAINAGE_SEWAGE", "CAT_ROAD_MAINTENANCE"]
+      },
+      "enforced_urgency": "CRITICAL",
+      "urgency_score": 0.95,
+      "urgency_reason": "Immediate fatal accident hazard: Open manhole or road cave-in on active thoroughfare.",
+      "mandatory_override": true
+    },
+    {
+      "rule_id": "URG_RULE_003",
+      "name": "Contaminated Water Supply Near Sensitive Facility",
+      "conditions": {
+        "keywords": ["dirty water", "foul smell", "yellow water", "black water", "sewage smell in drinking tap", "vomiting", "diarrhea"],
+        "category_matches": ["CAT_WATER_SUPPLY"]
+      },
+      "enforced_urgency": "HIGH",
+      "urgency_score": 0.85,
+      "urgency_reason": "Public health outbreak risk: Potable water contamination or illness symptoms reported.",
+      "mandatory_override": true
+    },
+    {
+      "rule_id": "URG_RULE_004",
+      "name": "Thoroughfare Road Blockage",
+      "conditions": {
+        "keywords": ["fallen tree on main road", "road completely blocked", "ambulance stuck", "traffic jammed completely"],
+        "category_matches": ["CAT_HORTICULTURE", "CAT_ROAD_MAINTENANCE"]
+      },
+      "enforced_urgency": "HIGH",
+      "urgency_score": 0.80,
+      "urgency_reason": "Major vehicular transit disruption: Essential arterial road access blocked.",
+      "mandatory_override": false
+    },
+    {
+      "rule_id": "URG_RULE_005",
+      "name": "Deceased Animal Disposal",
+      "conditions": {
+        "keywords": ["dead animal", "dead dog", "carcass", "dead cow"],
+        "category_matches": ["CAT_GARBAGE_COLLECTION"]
+      },
+      "enforced_urgency": "HIGH",
+      "urgency_score": 0.78,
+      "urgency_reason": "Sanitation vector hazard: Unattended carcass creates rapid biological contamination.",
+      "mandatory_override": false
+    },
+    {
+      "rule_id": "URG_RULE_006",
+      "name": "Routine Garbage / Unswept Street",
+      "conditions": {
+        "keywords": ["kachra", "garbage", "sweeping", "dry waste", "paper litter"],
+        "category_matches": ["CAT_GARBAGE_COLLECTION"]
+      },
+      "enforced_urgency": "LOW",
+      "urgency_score": 0.30,
+      "urgency_reason": "Standard non-hazardous sanitation request without acute life-safety risk.",
+      "mandatory_override": false
+    }
+  ]
+}

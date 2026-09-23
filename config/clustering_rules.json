@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "NagarSetu duplicate and incident clustering rules, signal weights, and multilingual civic concept dictionary.",
+  "weights": {
+    "semantic_text": 0.25,
+    "category": 0.15,
+    "canonical_locality": 0.20,
+    "ward": 0.15,
+    "temporal": 0.10,
+    "department": 0.05,
+    "key_terms": 0.10
+  },
+  "thresholds": {
+    "likely_duplicate": 0.72,
+    "related_incident": 0.48
+  },
+  "temporal_window_hours": 72.0,
+  "decay_half_life_hours": 24.0,
+  "multilingual_civic_concepts": {
+    "pothole": [
+      "pothole", "potholes", "gaddha", "gaddhe", "gadhha", "khadda", "road damage", 
+      "broken road", "crater", "गड्ढा", "गड्ढे", "टूटी सड़क"
+    ],
+    "manhole": [
+      "manhole", "manholes", "chamber lid", "gutter lid", "dhakkan", "dhakan", 
+      "open sewer", "gutter", "मैनहोल", "गटर", "ढक्कन", "खुला गटर"
+    ],
+    "streetlight": [
+      "streetlight", "street light", "streetlights", "light", "lamp", "pole", "bijli", 
+      "batti", "khamba", "bulb", "बत्ती", "बिजली", "स्ट्रीट लाइट", "खंभा"
+    ],
+    "water_supply": [
+      "water", "drinking water", "pipeline", "pipe burst", "paani", "pani", "jal", 
+      "nal", "leakage", "water supply", "पानी", "जल", "पाइपलाइन", "नल", "रिसाव"
+    ],
+    "sewage_drainage": [
+      "sewage", "drain", "drainage", "naali", "nala", "gutter overflow", "black water", 
+      "foul smell", "stagnant water", "गंदा पानी", "नाली", "नाला", "सीवेज", "बदबू"
+    ],
+    "garbage_dump": [
+      "garbage", "trash", "waste", "dustbin", "bin", "dump", "kooda", "kachra", 
+      "safai", "litter", "कूड़ा", "कचरा", "सफाई", "कचरा पेटी", "डंप"
+    ],
+    "tree_branch": [
+      "tree", "branch", "fallen tree", "pruning", "ped", "daali", "पेड़", "डाल", "शाखा"
+    ],
+    "park_playground": [
+      "park", "garden", "swings", "slide", "jhula", "bench", "पार्क", "बगीचा", "झूला"
+    ],
+    "electrical_wire": [
+      "live wire", "sparking", "snapped wire", "transformer", "taar", "तार", "शॉर्ट सर्किट"
+    ]
+  }
+}

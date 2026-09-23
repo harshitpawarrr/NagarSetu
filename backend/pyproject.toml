@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nagarsetu-backend"
+version = "0.1.0"
+description = "Operator-Facing AI Civic Complaint Triage and Accountability Engine"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.28.0",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.0",
+    "python-multipart>=0.0.9",
+    "python-dotenv>=1.0.1",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests", "../tests"]
+pythonpath = ["backend", "backend/app"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false

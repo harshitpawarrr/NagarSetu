@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "NagarSetu early-warning emerging issue alerts configuration.",
+  "min_recent_complaints": 3,
+  "spike_multiplier": 2.0,
+  "recent_window_hours": 72.0,
+  "baseline_window_hours": 72.0,
+  "disclaimer": "[PROTOTYPE_ASSUMPTION] Early-warning spike detection heuristic based on period volume shifts. Does not denote confirmed emergency or statistical significance."
+}

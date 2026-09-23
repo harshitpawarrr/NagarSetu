@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "disclaimer": "[PROTOTYPE_ASSUMPTION] Deterministic routing and fallback dispatch rules",
+  "default_fallback_department": "DEPT_SWM",
+  "min_confidence_for_auto_route": 0.75,
+  "rules": [
+    {
+      "rule_id": "ROUTE_RULE_ELEC_01",
+      "target_department": "DEPT_ELEC",
+      "conditions": {
+        "required_keywords_any": ["streetlight", "light pole", "wire", "bijli", "transformer", "dark road"],
+        "category_prefix": "CAT_STREET_LIGHTING"
+      },
+      "routing_evidence_template": "Matched electrical keywords '{matched_keywords}' with Category {category_id}. Assigned to Electrical & Street Lighting charter.",
+      "base_confidence": 0.92
+    },
+    {
+      "rule_id": "ROUTE_RULE_WSS_01",
+      "target_department": "DEPT_WSS",
+      "conditions": {
+        "required_keywords_any": ["water supply", "pipeline", "tap", "dirty water", "sewer", "gutter", "drainage", "manhole"],
+        "category_prefix": "CAT_WATER_SUPPLY"
+      },
+      "routing_evidence_template": "Matched water/sewerage keywords '{matched_keywords}'. Assigned to Water Supply & Sewerage Department.",
+      "base_confidence": 0.90
+    },
+    {
+      "rule_id": "ROUTE_RULE_RDS_01",
+      "target_department": "DEPT_RDS",
+      "conditions": {
+        "required_keywords_any": ["pothole", "gaddha", "road broken", "divider", "footpath", "tarring"],
+        "category_prefix": "CAT_ROAD_MAINTENANCE"
+      },
+      "routing_evidence_template": "Matched civil infrastructure keywords '{matched_keywords}'. Assigned to Roads & Civil Infrastructure Department.",
+      "base_confidence": 0.88
+    },
+    {
+      "rule_id": "ROUTE_RULE_SWM_01",
+      "target_department": "DEPT_SWM",
+      "conditions": {
+        "required_keywords_any": ["garbage", "kachra", "dustbin", "waste", "filth", "dumping", "carcass"],
+        "category_prefix": "CAT_GARBAGE_COLLECTION"
+      },
+      "routing_evidence_template": "Matched sanitation keywords '{matched_keywords}'. Assigned to Solid Waste Management & Sanitation Department.",
+      "base_confidence": 0.89
+    },
+    {
+      "rule_id": "ROUTE_RULE_ENCR_01",
+      "target_department": "DEPT_ENCR",
+      "conditions": {
+        "required_keywords_any": ["encroachment", "illegal stall", "kabza", "hawker blocking", "illegal construction"],
+        "category_prefix": "CAT_ENCROACHMENT"
+      },
+      "routing_evidence_template": "Matched right-of-way obstruction keywords '{matched_keywords}'. Assigned to Town Planning & Encroachment Removal.",
+      "base_confidence": 0.85
+    }
+  ]
+}

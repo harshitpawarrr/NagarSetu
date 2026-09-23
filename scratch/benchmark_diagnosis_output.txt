@@ -1,0 +1,225 @@
+Overall Results:
+  Total Samples: 30
+  Dept Accuracy: 40.0%
+  Cat Accuracy:  40.0%
+  Urg Accuracy:  53.3%
+  Loc Accuracy:  83.3%
+  Dup Reduction: 36.7%
+
+=== RECORD BY RECORD DIAGNOSIS ===
+[CMP-TEST-001] 'Large pothole outside City School main gate in MP Nagar'
+  Dept:  pred=DEPT_RDS     gt=DEPT_RDS     -> MATCH
+  Cat:   pred=CAT_ROAD_MAINTENANCE     gt=CAT_ROAD_MAINTENANCE     -> MATCH
+  Urg:   pred=LOW          gt=MEDIUM       -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=MP Nagar (Ward 42) gt=MP Nagar (Ward 42) -> MATCH
+  Terms: ['pothole']
+
+[CMP-TEST-002] 'सिटी स्कूल एमपी नगर के पास बहुत गहरा गड्ढा है सड़क पर'
+  Dept:  pred=DEPT_SWM     gt=DEPT_RDS     -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_ROAD_MAINTENANCE     -> MISMATCH
+  Urg:   pred=LOW          gt=MEDIUM       -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=MP Nagar (Ward 42) gt=MP Nagar (Ward 42) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-003] 'Road damaged near City School gate in MP Nagar'
+  Dept:  pred=DEPT_SWM     gt=DEPT_RDS     -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_ROAD_MAINTENANCE     -> MISMATCH
+  Urg:   pred=LOW          gt=MEDIUM       -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=MP Nagar (Ward 42) gt=MP Nagar (Ward 42) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-004] 'Open manhole cover missing on main road in MP Nagar Zone 1'
+  Dept:  pred=DEPT_WSS     gt=DEPT_WSS     -> MATCH
+  Cat:   pred=CAT_DRAINAGE_SEWAGE      gt=CAT_ROAD_MAINTENANCE     -> MISMATCH
+  Urg:   pred=CRITICAL     gt=CRITICAL     -> MATCH (score: 0.95, reason: [MANDATORY SAFETY OVERRIDE: URG_RULE_002] Immediate fatal accident hazard: Open manhole or road cave-in on active thoroughfare.)
+  Loc:   pred=MP Nagar (Ward 42) gt=MP Nagar (Ward 42) -> MATCH
+  Terms: ['manhole']
+
+[CMP-TEST-005] 'खुला मैनहोल बिना किसी ढक्कन के एमपी नगर में'
+  Dept:  pred=DEPT_SWM     gt=DEPT_WSS     -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_ROAD_MAINTENANCE     -> MISMATCH
+  Urg:   pred=LOW          gt=CRITICAL     -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=MP Nagar (Ward 42) gt=MP Nagar (Ward 42) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-006] 'Major drinking water pipeline burst in Shivaji Nagar Sector A'
+  Dept:  pred=DEPT_WSS     gt=DEPT_WSS     -> MATCH
+  Cat:   pred=CAT_WATER_SUPPLY         gt=CAT_WATER_SUPPLY         -> MATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Shivaji Nagar (Ward 101) gt=Shivaji Nagar (Ward 101) -> MATCH
+  Terms: ['pipeline']
+
+[CMP-TEST-007] 'शिवाजी नगर सेक्टर ए में पीने के पानी का पाइप फट गया है'
+  Dept:  pred=DEPT_SWM     gt=DEPT_WSS     -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_WATER_SUPPLY         -> MISMATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Shivaji Nagar (Ward 101) gt=Shivaji Nagar (Ward 101) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-008] 'Water pipeline leakage near Shivaji Nagar bus stop'
+  Dept:  pred=DEPT_WSS     gt=DEPT_WSS     -> MATCH
+  Cat:   pred=CAT_WATER_SUPPLY         gt=CAT_WATER_SUPPLY         -> MATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Shivaji Nagar (Ward 101) gt=Shivaji Nagar (Ward 101) -> MATCH
+  Terms: ['leakage', 'pipeline']
+
+[CMP-TEST-009] 'Streetlights non-functional from Clock Tower to Subhash Marg in Gandhi Chowk'
+  Dept:  pred=DEPT_SWM     gt=DEPT_ELEC    -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_STREET_LIGHTING      -> MISMATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Gandhi Chowk (Ward 102) gt=Gandhi Chowk (Ward 102) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-010] 'गांधी चौक क्लॉक टावर के पास सारी स्ट्रीट लाइटें बंद हैं'
+  Dept:  pred=DEPT_SWM     gt=DEPT_ELEC    -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_STREET_LIGHTING      -> MISMATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Gandhi Chowk (Ward 102) gt=Gandhi Chowk (Ward 102) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-011] 'Dark street near Clock Tower Gandhi Chowk lights not working'
+  Dept:  pred=DEPT_ELEC    gt=DEPT_ELEC    -> MATCH
+  Cat:   pred=CAT_STREET_LIGHTING      gt=CAT_STREET_LIGHTING      -> MATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.31, reason: Evaluated priority score 31/100 (Safety: 22/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Gandhi Chowk (Ward 102) gt=Gandhi Chowk (Ward 102) -> MATCH
+  Terms: ['dark street']
+
+[CMP-TEST-012] 'Community garbage bin overflowing in Vasant Vihar Block C'
+  Dept:  pred=DEPT_SWM     gt=DEPT_SWM     -> MATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_GARBAGE_COLLECTION   -> MATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.17, reason: Evaluated priority score 17/100 (Safety: 8/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Vasant Vihar (Ward 201) gt=Vasant Vihar (Ward 201) -> MATCH
+  Terms: ['garbage']
+
+[CMP-TEST-013] 'वसंत विहार ब्लॉक सी में कचरा पेटी भर कर सड़क पर फैल रहा है'
+  Dept:  pred=DEPT_SWM     gt=DEPT_SWM     -> MATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_GARBAGE_COLLECTION   -> MATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Vasant Vihar (Ward 201) gt=Vasant Vihar (Ward 201) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-014] 'Garbage dumped on road in Vasant Vihar Block C'
+  Dept:  pred=DEPT_SWM     gt=DEPT_SWM     -> MATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_GARBAGE_COLLECTION   -> MATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.17, reason: Evaluated priority score 17/100 (Safety: 8/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Vasant Vihar (Ward 201) gt=Vasant Vihar (Ward 201) -> MATCH
+  Terms: ['garbage']
+
+[CMP-TEST-015] 'Live electrical wire snapped and hanging low near St Mary School in Vasant Vihar'
+  Dept:  pred=DEPT_SWM     gt=DEPT_ELEC    -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_STREET_LIGHTING      -> MISMATCH
+  Urg:   pred=CRITICAL     gt=HIGH         -> MISMATCH (score: 0.98, reason: [MANDATORY SAFETY OVERRIDE: URG_RULE_001] Severe public life-safety hazard: Active electrical spark or exposed wire reported in public pedestrian zone.)
+  Loc:   pred=Vasant Vihar (Ward 201) gt=Vasant Vihar (Ward 201) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-016] 'बिजली का नंगा तार टूटकर रास्ते पर लटक रहा है वसंत विहार में'
+  Dept:  pred=DEPT_SWM     gt=DEPT_ELEC    -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_STREET_LIGHTING      -> MISMATCH
+  Urg:   pred=LOW          gt=HIGH         -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Vasant Vihar (Ward 201) gt=Vasant Vihar (Ward 201) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-017] 'Sewage drain backed up and dark black water flooding into basements in Indira Industrial Area'
+  Dept:  pred=DEPT_SWM     gt=DEPT_WSS     -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_DRAINAGE_SEWAGE      -> MISMATCH
+  Urg:   pred=HIGH         gt=HIGH         -> MATCH (score: 0.85, reason: [MANDATORY SAFETY OVERRIDE: URG_RULE_003] Public health outbreak risk: Potable water contamination or illness symptoms reported.)
+  Loc:   pred=Indira Industrial Area (Ward 202) gt=Indira Industrial Area (Ward 202) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-018] 'इंदिरा इंडस्ट्रियल एरिया में नाली का गंदा काला पानी बेसमेंट में भर रहा है'
+  Dept:  pred=DEPT_SWM     gt=DEPT_WSS     -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_DRAINAGE_SEWAGE      -> MISMATCH
+  Urg:   pred=LOW          gt=HIGH         -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Indira Industrial Area (Ward 202) gt=Indira Industrial Area (Ward 202) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-019] 'Broken children slide and damaged swings in Green Park botanical garden'
+  Dept:  pred=DEPT_SWM     gt=DEPT_HORT    -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_PARK_MAINTENANCE     -> MISMATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Green Park (Ward 203) gt=Green Park (Ward 203) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-020] 'Stagnant cesspool of rainwater behind vegetable mandi in Nehru Market with mosquitoes'
+  Dept:  pred=DEPT_SWM     gt=DEPT_PH      -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_WATER_SUPPLY         -> MISMATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Nehru Market (Ward 103) gt=Nehru Market (Ward 103) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-021] 'Broken footpath pavement blocks on Court Road in Civil Lines'
+  Dept:  pred=DEPT_RDS     gt=DEPT_RDS     -> MATCH
+  Cat:   pred=CAT_ROAD_MAINTENANCE     gt=CAT_ROAD_MAINTENANCE     -> MATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Civil Lines (Ward 301) gt=Civil Lines (Ward 301) -> MATCH
+  Terms: ['footpath']
+
+[CMP-TEST-022] 'Dead animal carcass rotting on median divider opposite Railway Station'
+  Dept:  pred=DEPT_SWM     gt=DEPT_SWM     -> MATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_GARBAGE_COLLECTION   -> MATCH
+  Urg:   pred=LOW          gt=HIGH         -> MISMATCH (score: 0.31, reason: Evaluated priority score 31/100 (Safety: 22/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=UNKNOWN (None) gt=Railway Station (Ward 10) -> MISMATCH
+  Terms: ['dead animal', 'carcass']
+
+[CMP-TEST-023] 'Low water pressure in residential taps in Arera Colony E-7'
+  Dept:  pred=DEPT_SWM     gt=DEPT_WSS     -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_WATER_SUPPLY         -> MISMATCH
+  Urg:   pred=LOW          gt=MEDIUM       -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Arera Colony (Ward 48) gt=Arera Colony (Ward 104) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-024] 'Large neem tree branch fallen blocking driveway in BDA Complex'
+  Dept:  pred=DEPT_SWM     gt=DEPT_HORT    -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_PARK_MAINTENANCE     -> MISMATCH
+  Urg:   pred=LOW          gt=MEDIUM       -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=UNKNOWN (None) gt=BDA Complex (Ward 45) -> MISMATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-025] 'Sodium vapor lamps burning continuously in daytime on Kolar Road'
+  Dept:  pred=DEPT_SWM     gt=DEPT_ELEC    -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_STREET_LIGHTING      -> MISMATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=Kolar Road (Ward 80) gt=Kolar Road (Ward 80) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-026] 'Illegal permanent concrete construction on designated public footpath in New Market'
+  Dept:  pred=DEPT_RDS     gt=DEPT_TOWN    -> MISMATCH
+  Cat:   pred=CAT_ROAD_MAINTENANCE     gt=CAT_ROAD_MAINTENANCE     -> MATCH
+  Urg:   pred=LOW          gt=LOW          -> MATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=New Market (Ward 30) gt=New Market (Ward 25) -> MATCH
+  Terms: ['footpath']
+
+[CMP-TEST-027] 'Construction debris and malba dumped in front of dispensary in Shahpura Sector B'
+  Dept:  pred=DEPT_SWM     gt=DEPT_SWM     -> MATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_GARBAGE_COLLECTION   -> MATCH
+  Urg:   pred=MEDIUM       gt=LOW          -> MISMATCH (score: 0.40, reason: Evaluated priority score 40/100 (Safety: 10/40, Outage: 26/30, Duration: 4/30).)
+  Loc:   pred=Shahpura (Ward 14) gt=Shahpura (Ward 50) -> MATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-028] 'Choked storm water drain causing waterlogging near bus stop in Karond'
+  Dept:  pred=DEPT_WSS     gt=DEPT_WSS     -> MATCH
+  Cat:   pred=CAT_DRAINAGE_SEWAGE      gt=CAT_DRAINAGE_SEWAGE      -> MATCH
+  Urg:   pred=LOW          gt=MEDIUM       -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=UNKNOWN (None) gt=Karond (Ward 15) -> MISMATCH
+  Terms: ['waterlogging']
+
+[CMP-TEST-029] 'Foul chemical stench emanating from open industrial drain in Govindpura Sector C'
+  Dept:  pred=DEPT_SWM     gt=DEPT_PH      -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_DRAINAGE_SEWAGE      -> MISMATCH
+  Urg:   pred=MEDIUM       gt=HIGH         -> MISMATCH (score: 0.40, reason: Evaluated priority score 40/100 (Safety: 10/40, Outage: 26/30, Duration: 4/30).)
+  Loc:   pred=UNKNOWN (None) gt=Govindpura (Ward 60) -> MISMATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+[CMP-TEST-030] 'Traffic signal lights blacked out at Board Office intersection causing gridlock'
+  Dept:  pred=DEPT_SWM     gt=DEPT_ELEC    -> MISMATCH
+  Cat:   pred=CAT_GARBAGE_COLLECTION   gt=CAT_STREET_LIGHTING      -> MISMATCH
+  Urg:   pred=LOW          gt=HIGH         -> MISMATCH (score: 0.19, reason: Evaluated priority score 19/100 (Safety: 10/40, Outage: 5/30, Duration: 4/30).)
+  Loc:   pred=UNKNOWN (None) gt=Board Office (Ward 40) -> MISMATCH
+  Terms: ['[KEYWORD_FALLBACK]']
+
+
+=== SUMMARY OF MISMATCHES ===
+Total Dept Mismatches: 18 / 30
+Total Cat Mismatches:  18 / 30
+Total Urg Mismatches:  14 / 30
+Total Loc Mismatches:  5 / 30

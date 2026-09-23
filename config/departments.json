@@ -1,0 +1,97 @@
+{
+  "version": "1.1.0",
+  "disclaimer": "[PROTOTYPE_ASSUMPTION] Standardized municipal department taxonomy with Devanagari Hindi and English synonyms",
+  "departments": [
+    {
+      "department_id": "DEPT_SWM",
+      "code": "SWM",
+      "name": "Solid Waste Management & Sanitation",
+      "description": "Handles garbage collection, overflowing dumpsters, street sweeping, illegal dumping, and carcass disposal.",
+      "aliases": ["DEPT_SANITATION"],
+      "keywords": [
+        "garbage", "kachra", "dustbin", "dumpster", "sweeping", "waste", "filth", "dead animal", "carcass", "litter", "malba", "debris",
+        "कचरा", "कचरा पेटी", "कूड़ा", "सफाई", "गंदगी", "मरा हुआ जानवर"
+      ],
+      "default_sla_hours": 24,
+      "escalation_contact": "swm-zone-officer@municipality.gov.in"
+    },
+    {
+      "department_id": "DEPT_WSS",
+      "code": "WSS",
+      "name": "Water Supply & Sewerage",
+      "description": "Responsible for potable piped water supply, pipeline leakages, contaminated water, clogged drains, and overflowing manholes.",
+      "aliases": ["DEPT_WATER", "DEPT_SEWERAGE"],
+      "keywords": [
+        "water supply", "paani", "leakage", "pipeline", "pipe", "dirty water", "low pressure", "sewer", "drainage", "sewage", "drain", "manhole", "gutter", "waterlogging", "storm water",
+        "पानी", "पाइप", "लीकेज", "पानी की सप्लाई", "नल", "कम दबाव", "नाली", "सीवर", "मैनहोल", "नाला", "गंदा पानी", "जलभराव"
+      ],
+      "default_sla_hours": 12,
+      "escalation_contact": "water-zone-officer@municipality.gov.in"
+    },
+    {
+      "department_id": "DEPT_RDS",
+      "code": "RDS",
+      "name": "Roads & Civil Infrastructure",
+      "description": "Maintains municipal roads, bridges, culverts, footpaths, divider repairs, and pothole rectification.",
+      "aliases": ["DEPT_ROADS"],
+      "keywords": [
+        "pothole", "gaddha", "road broken", "road damaged", "footpath", "divider", "damaged road", "bridge", "tarring", "sinkhole", "crater", "pavement",
+        "गड्ढा", "गड्ढे", "सड़क", "सड़क", "खड्डा", "फुटपाथ"
+      ],
+      "default_sla_hours": 48,
+      "escalation_contact": "roads-zone-officer@municipality.gov.in"
+    },
+    {
+      "department_id": "DEPT_ELEC",
+      "code": "ELEC",
+      "name": "Electrical & Street Lighting",
+      "description": "Manages public streetlights, high-mast lamps, exposed wiring, loose electrical poles, and feeder box hazards.",
+      "aliases": ["DEPT_ELECTRICAL"],
+      "keywords": [
+        "streetlight", "streetlights", "light not working", "dark street", "bijli", "exposed wire", "electric pole", "short circuit", "high mast", "wire", "electrical wire", "lamp", "lamps", "sodium vapor", "signal", "traffic signal",
+        "स्ट्रीट लाइट", "लाइट", "बिजली", "तार", "बिजली का तार", "अंधेरा"
+      ],
+      "default_sla_hours": 24,
+      "escalation_contact": "electrical-zone-officer@municipality.gov.in"
+    },
+    {
+      "department_id": "DEPT_HLT",
+      "code": "HLT",
+      "name": "Public Health & Vector Control",
+      "description": "Handles mosquito fogging, stagnant water disease vectors, food safety inspections, and stray animal sterilization/dog bites.",
+      "aliases": ["DEPT_PH"],
+      "keywords": [
+        "mosquito", "mosquitoes", "dengue", "malaria", "fogging", "stray dogs", "dog bite", "food adulteration", "epidemic", "flies", "chemical stench", "stagnant water", "cesspool",
+        "मच्छर", "दवा छिड़काव", "बीमारी", "आवारा कुत्ते"
+      ],
+      "default_sla_hours": 24,
+      "escalation_contact": "health-zone-officer@municipality.gov.in"
+    },
+    {
+      "department_id": "DEPT_ENCR",
+      "code": "ENCR",
+      "name": "Town Planning & Encroachment Removal",
+      "description": "Enforces right-of-way, removal of unauthorized commercial encroachments on public roads, and illegal constructions.",
+      "aliases": ["DEPT_TOWN", "DEPT_PLANNING"],
+      "keywords": [
+        "encroachment", "illegal construction", "footpath blocked", "unauthorized stall", "hawker blocking road", "kabza", "permanent construction", "unauthorized construction",
+        "अतिक्रमण", "अवैध निर्माण"
+      ],
+      "default_sla_hours": 72,
+      "escalation_contact": "planning-zone-officer@municipality.gov.in"
+    },
+    {
+      "department_id": "DEPT_HORT",
+      "code": "HORT",
+      "name": "Horticulture & Public Parks",
+      "description": "Maintains municipal parks, pruning of hazardous tree branches, falling trees on roads, and green belt preservation.",
+      "aliases": ["DEPT_PARKS"],
+      "keywords": [
+        "tree fallen", "branch broken", "tree branch", "branch", "neem tree", "tree", "park maintenance", "grass cutting", "overgrown trees", "horticulture", "garden", "botanical garden", "swings", "slide", "swing",
+        "पेड़", "पेड़", "डाल", "शाखा", "पौधे", "बगीचा"
+      ],
+      "default_sla_hours": 48,
+      "escalation_contact": "horticulture-zone-officer@municipality.gov.in"
+    }
+  ]
+}

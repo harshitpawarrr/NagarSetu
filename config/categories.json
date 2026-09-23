@@ -1,0 +1,125 @@
+{
+  "version": "1.1.0",
+  "disclaimer": "[PROTOTYPE_ASSUMPTION] Standardized categories and subcategories for civic triage with multilingual keyword mappings",
+  "categories": [
+    {
+      "category_id": "CAT_GARBAGE_COLLECTION",
+      "department_id": "DEPT_SWM",
+      "name": "Garbage Collection & Cleanliness",
+      "aliases": ["CAT_SANITATION"],
+      "keywords": [
+        "garbage", "kachra", "dustbin", "dumpster", "dumped", "dead animal", "carcass", "malba", "debris",
+        "कचरा", "कचरा पेटी", "कूड़ा", "सफाई", "गंदगी"
+      ],
+      "subcategories": [
+        { "id": "SUB_DOOR_TO_DOOR", "name": "Door-to-door collection missed", "typical_sla_hours": 12 },
+        { "id": "SUB_DUMPSTER_OVERFLOW", "name": "Overflowing public dumpster/dhalao", "typical_sla_hours": 8 },
+        { "id": "SUB_ILLEGAL_DUMPING", "name": "Illegal open dumping on vacant plot", "typical_sla_hours": 48 },
+        { "id": "SUB_DEAD_ANIMAL", "name": "Animal carcass removal", "typical_sla_hours": 4 }
+      ]
+    },
+    {
+      "category_id": "CAT_WATER_SUPPLY",
+      "department_id": "DEPT_WSS",
+      "name": "Drinking Water Supply",
+      "aliases": ["CAT_POTABLE_WATER"],
+      "keywords": [
+        "water supply", "drinking water", "pipeline", "pipe burst", "leakage", "low pressure", "dirty water", "tap",
+        "पानी", "पीने का पानी", "पाइप", "लीकेज", "पानी की सप्लाई", "नल", "कम दबाव"
+      ],
+      "subcategories": [
+        { "id": "SUB_NO_WATER", "name": "No water supply in colony", "typical_sla_hours": 8 },
+        { "id": "SUB_CONTAMINATED_WATER", "name": "Dirty or foul-smelling tap water", "typical_sla_hours": 6 },
+        { "id": "SUB_PIPE_BURST", "name": "Main pipeline burst / heavy leakage", "typical_sla_hours": 4 },
+        { "id": "SUB_LOW_PRESSURE", "name": "Low pressure water supply", "typical_sla_hours": 24 }
+      ]
+    },
+    {
+      "category_id": "CAT_DRAINAGE_SEWAGE",
+      "department_id": "DEPT_WSS",
+      "name": "Drainage & Sewerage",
+      "aliases": ["CAT_SEWER_DRAINAGE"],
+      "keywords": [
+        "sewer", "drainage", "sewage", "drain", "manhole", "open manhole", "waterlogging", "storm water", "overflowing sewer",
+        "नाली", "सीवर", "मैनहोल", "खुला मैनहोल", "नाला", "गंदा पानी", "जलभराव"
+      ],
+      "subcategories": [
+        { "id": "SUB_SEWER_OVERFLOW", "name": "Open manhole / overflowing sewer on street", "typical_sla_hours": 4 },
+        { "id": "SUB_CLOGGED_DRAIN", "name": "Stormwater drain blocked / waterlogging", "typical_sla_hours": 12 },
+        { "id": "SUB_MISSING_MANHOLE_COVER", "name": "Missing or broken manhole cover (Hazard)", "typical_sla_hours": 2 }
+      ]
+    },
+    {
+      "category_id": "CAT_ROAD_MAINTENANCE",
+      "department_id": "DEPT_RDS",
+      "name": "Roads & Pavements",
+      "aliases": ["CAT_ROADS_CIVIL"],
+      "keywords": [
+        "pothole", "gaddha", "road broken", "road damaged", "damaged road", "footpath", "divider", "pavement", "sinkhole", "crater",
+        "गड्ढा", "गड्ढे", "सड़क", "सड़क", "खड्डा", "फुटपाथ"
+      ],
+      "subcategories": [
+        { "id": "SUB_POTHOLE", "name": "Dangerous pothole on carriageway", "typical_sla_hours": 24 },
+        { "id": "SUB_CAVED_IN_ROAD", "name": "Road cave-in / deep sinkhole", "typical_sla_hours": 4 },
+        { "id": "SUB_FOOTPATH_BROKEN", "name": "Broken pavement / pedestrian hazard", "typical_sla_hours": 72 }
+      ]
+    },
+    {
+      "category_id": "CAT_STREET_LIGHTING",
+      "department_id": "DEPT_ELEC",
+      "name": "Street Lighting & Electrical",
+      "aliases": ["CAT_ELECTRICAL"],
+      "keywords": [
+        "streetlight", "streetlights", "light not working", "dark street", "bijli", "exposed wire", "electric pole", "lamp", "lamps", "sodium vapor", "signal", "traffic signal",
+        "स्ट्रीट लाइट", "लाइट", "बिजली", "तार", "बिजली का तार", "अंधेरा"
+      ],
+      "subcategories": [
+        { "id": "SUB_STREETLIGHT_OUT", "name": "Single or multiple streetlights non-functional", "typical_sla_hours": 24 },
+        { "id": "SUB_LIVE_WIRE_EXPOSED", "name": "Exposed sparking wire / damaged electric pole (Hazard)", "typical_sla_hours": 2 },
+        { "id": "SUB_FEEDER_BOX_OPEN", "name": "Open electrical junction box on ground", "typical_sla_hours": 4 }
+      ]
+    },
+    {
+      "category_id": "CAT_PUBLIC_HEALTH",
+      "department_id": "DEPT_HLT",
+      "name": "Public Health & Sanitation",
+      "aliases": ["CAT_HEALTH_VECTOR"],
+      "keywords": [
+        "mosquito", "mosquitoes", "dengue", "malaria", "fogging", "stray dogs", "dog bite", "chemical stench", "stagnant water", "cesspool",
+        "मच्छर", "दवा छिड़काव", "बीमारी", "आवारा कुत्ते"
+      ],
+      "subcategories": [
+        { "id": "SUB_VECTOR_BREEDING", "name": "Mosquito larvae in water bodies / fogging request", "typical_sla_hours": 24 },
+        { "id": "SUB_STRAY_CANINE", "name": "Aggressive stray dogs / dog bite report", "typical_sla_hours": 12 }
+      ]
+    },
+    {
+      "category_id": "CAT_ENCROACHMENT",
+      "department_id": "DEPT_ENCR",
+      "name": "Encroachment & Right-of-Way",
+      "aliases": ["CAT_TOWN_PLANNING"],
+      "keywords": [
+        "encroachment", "illegal construction", "footpath blocked", "unauthorized stall", "hawker blocking road", "kabza", "permanent concrete construction",
+        "अतिक्रमण", "अवैध निर्माण"
+      ],
+      "subcategories": [
+        { "id": "SUB_FOOTPATH_ENCROACHMENT", "name": "Unauthorized commercial stalls blocking sidewalk", "typical_sla_hours": 48 },
+        { "id": "SUB_ROAD_OBSTRUCTION", "name": "Building debris or material dumped on road", "typical_sla_hours": 24 }
+      ]
+    },
+    {
+      "category_id": "CAT_HORTICULTURE",
+      "department_id": "DEPT_HORT",
+      "name": "Parks & Trees",
+      "aliases": ["CAT_PARK_MAINTENANCE", "CAT_PARKS"],
+      "keywords": [
+        "tree fallen", "branch broken", "tree branch", "branch", "neem tree", "tree", "park maintenance", "garden", "botanical garden", "swings", "slide", "swing",
+        "पेड़", "पेड़", "डाल", "शाखा", "पौधे", "बगीचा"
+      ],
+      "subcategories": [
+        { "id": "SUB_FALLEN_TREE", "name": "Fallen tree or branch blocking thoroughfare", "typical_sla_hours": 4 },
+        { "id": "SUB_OVERGROWN_BRANCH", "name": "Tree branches touching overhead power lines", "typical_sla_hours": 8 }
+      ]
+    }
+  ]
+}

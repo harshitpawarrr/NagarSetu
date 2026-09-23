@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-slate-300 min-h-screen bg-[#050910];
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-attachment: fixed;
+    position: relative;
+    letter-spacing: -0.01em;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-slate-100 tracking-tight;
+  }
+  
+  /* Form resets */
+  select, input {
+    @apply bg-[#0A0E17] border border-white/10 text-slate-200 outline-none transition-colors;
+  }
+  select:focus, input:focus {
+    @apply border-cyan-500/50 ring-0;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-[#101722] border border-[rgba(120,140,170,0.16)] rounded-[20px] shadow-[0_12px_35px_rgba(0,0,0,0.12)];
+  }
+  
+  .glass-card {
+    @apply bg-[#121A25] border border-[rgba(120,140,170,0.16)] rounded-[18px] shadow-[0_12px_35px_rgba(0,0,0,0.10)] transition-all duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)];
+  }
+
+  .inner-panel {
+    @apply bg-[#0D131F] border border-[rgba(120,140,170,0.12)] rounded-[16px];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white to-slate-400;
+  }
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-cyan-300 to-blue-500;
+  }
+
+  .status-critical {
+    @apply bg-rose-500/10 border border-rose-500/30 text-rose-400;
+  }
+  .status-high {
+    @apply bg-amber-500/10 border border-amber-500/30 text-amber-400;
+  }
+  .status-medium {
+    @apply bg-blue-500/10 border border-blue-500/30 text-blue-400;
+  }
+  .status-low {
+    @apply bg-slate-500/10 border border-slate-500/30 text-slate-400;
+  }
+
+  /* Interaction Utility */
+  .card-hover:hover {
+    @apply border-[rgba(120,140,170,0.25)] transform -translate-y-[2px] shadow-[0_16px_40px_rgba(0,0,0,0.18)];
+  }
+  
+  .btn-premium {
+    @apply hover:scale-[0.98] active:scale-[0.96] transition-transform duration-200;
+  }
+}
+
+/* Page Transitions */
+.animate-page-enter {
+  animation: pageEnter 350ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-page-exit {
+  animation: pageExit 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* Stagger Animations */
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUpFade 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stagger-1 { animation-delay: 60ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 180ms; }
+.stagger-4 { animation-delay: 240ms; }
+.stagger-5 { animation-delay: 300ms; }
+.stagger-6 { animation-delay: 360ms; }
+.stagger-7 { animation-delay: 420ms; }
+.stagger-8 { animation-delay: 480ms; }
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Base structural blocks */
+.isometric-container {
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+.isometric-plane {
+  transform: rotateX(60deg) rotateZ(-45deg);
+  transform-style: preserve-3d;
+}
+.iso-node {
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.iso-node-shadow {
+  transform: translateZ(-1px);
+  filter: blur(8px);
+  opacity: 0.5;
+}

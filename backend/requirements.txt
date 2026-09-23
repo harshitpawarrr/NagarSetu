@@ -11,6 +11,7 @@ python-multipart>=0.0.9
 # Data Processing & Storage (For future phases)
 sqlalchemy[asyncio]>=2.0.28
 asyncpg>=0.29.0
+psycopg2-binary>=2.9.9
 
 # AI & Multimodal SDK (For future phases)
 google-genai>=0.1.0

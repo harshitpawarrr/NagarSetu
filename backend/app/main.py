@@ -3,6 +3,8 @@ NagarSetu FastAPI Application Entrypoint
 Provides foundation health checks and route registrations.
 """
 
+import logging
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
@@ -14,12 +16,35 @@ from app.api.operator import router as operator_router
 from app.api.analytics import router as analytics_router
 from app.api.evaluation import router as evaluation_router
 
+logger = logging.getLogger("nagarsetu.main")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    FastAPI lifespan hook: safely and idempotently initializes the database schema
+    and foundational seed data once upon application startup.
+    """
+    try:
+        from app.db.init_db import init_database_and_seed
+        init_result = init_database_and_seed()
+        logger.info(
+            "Startup database initialization completed: %s (tables verified: %d)",
+            init_result.get("status"),
+            init_result.get("total_tables", 0)
+        )
+    except Exception as exc:
+        logger.error("Database startup initialization encountered an error: %s", exc, exc_info=True)
+    yield
+
+
 app = FastAPI(
     title=settings.PROJECT_NAME,
     description="Operator-facing read-only AI civic complaint triage and accountability engine.",
     version="0.1.0",
     docs_url="/docs",
-    redoc_url="/redoc"
+    redoc_url="/redoc",
+    lifespan=lifespan
 )
 
 # Configure CORS
@@ -110,8 +135,10 @@ def health_check():
         else:
             checks["database_tables"] = f"missing: {', '.join(missing_tables)}"
         details["tables_verified"] = len(existing_tables)
+        details["database_engine"] = engine.dialect.name
     except Exception as exc:
         checks["database_tables"] = f"error: {str(exc)}"
+        details["database_engine"] = "unknown"
 
     overall_status = "healthy" if (
         checks["database"] == "healthy" and

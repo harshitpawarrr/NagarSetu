@@ -111,6 +111,53 @@ def verify_schema(bind_engine=None) -> dict:
     }
 
 
+def init_database_and_seed(bind_engine=None, session_factory=None) -> dict:
+    """
+    Idempotent database initialization and baseline data seeding.
+    1. Creates all missing tables safely via Base.metadata.create_all().
+    2. Ensures dynamic column backward-compatibility.
+    3. Seeds baseline taxonomy (departments, categories, gazetteer) and synthetic demo data
+       ONLY if baseline data is not already present.
+    4. Never deletes, drops, or overwrites existing records.
+    Safe to run repeatedly on startup across restarts.
+    """
+    target_engine = bind_engine or engine
+    create_tables(bind_engine=target_engine)
+
+    from sqlalchemy.orm import sessionmaker
+    from app.db.session import SessionLocal
+    from app.models.taxonomy import Department
+    from app.models.complaint import RawComplaint
+    from scripts.seed_data import (
+        seed_departments,
+        seed_categories,
+        seed_gazetteer,
+        seed_synthetic_complaints,
+        seed_weekly_reports_and_evaluation
+    )
+
+    target_session_factory = session_factory or (
+        SessionLocal if bind_engine is None else sessionmaker(autocommit=False, autoflush=False, bind=target_engine)
+    )
+
+    with target_session_factory() as db:
+        dept_count = db.query(Department).count()
+        raw_count = db.query(RawComplaint).count()
+
+        if dept_count == 0 or raw_count == 0:
+            logger.info("Initializing baseline taxonomy and demo seed data...")
+            dept_map = seed_departments(db)
+            seed_categories(db, dept_map)
+            seed_gazetteer(db)
+            seed_synthetic_complaints(db)
+            seed_weekly_reports_and_evaluation(db)
+            logger.info("Baseline seed data successfully loaded.")
+        else:
+            logger.info("Database already initialized with %d departments and %d complaints.", dept_count, raw_count)
+
+    return verify_schema(bind_engine=target_engine)
+
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     print("Creating tables in database...")

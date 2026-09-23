@@ -4,19 +4,33 @@ Supports PostgreSQL (production/docker) with flexible engine fallback for local 
 """
 
 import os
+import logging
 from pathlib import Path
 from typing import Generator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from app.core.config import settings
 
+logger = logging.getLogger("nagarsetu.db")
+
+
+def normalize_db_url(raw_url: str) -> str:
+    """Normalize async, legacy, and cloud provider PostgreSQL URLs to standard synchronous psycopg2."""
+    if not raw_url:
+        return raw_url
+    url = raw_url.strip()
+    if url.startswith("postgres://"):
+        return "postgresql+psycopg2://" + url[len("postgres://"):]
+    elif url.startswith("postgresql+asyncpg://"):
+        return "postgresql+psycopg2://" + url[len("postgresql+asyncpg://"):]
+    elif url.startswith("postgresql://"):
+        return "postgresql+psycopg2://" + url[len("postgresql://"):]
+    return url
+
+
 # Determine effective database URL
 raw_db_url = os.getenv("DATABASE_URL", settings.DATABASE_URL)
-
-# Normalize async driver to sync driver for standard session operations if needed
-sync_db_url = raw_db_url.replace("postgresql+asyncpg://", "postgresql+psycopg2://")
-if sync_db_url.startswith("postgresql://"):
-    sync_db_url = sync_db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
+sync_db_url = normalize_db_url(raw_db_url)
 
 # Check if SQLite fallback should be used for development/offline mode
 use_sqlite_fallback = os.getenv("USE_SQLITE_FALLBACK", "auto").lower()
@@ -43,9 +57,17 @@ else:
         if use_sqlite_fallback == "auto":
             with engine.connect() as conn:
                 pass
-    except Exception:
-        # Fallback to local dev SQLite so developers can work offline without a running PostgreSQL daemon
+    except Exception as exc:
+        if use_sqlite_fallback == "false":
+            logger.error("Failed to connect to PostgreSQL database and fallback is disabled: %s", exc)
+            raise
+        # Fallback to local dev SQLite so developers / deploys without PostgreSQL can run safely
         fallback_path = settings.DATA_PROCESSED_DIR.parent / "nagarsetu_dev.db"
+        logger.warning(
+            "PostgreSQL connection failed (%s). Gracefully falling back to local SQLite at %s",
+            exc,
+            fallback_path
+        )
         sync_db_url = f"sqlite:///{fallback_path}"
         engine = create_engine(sync_db_url, connect_args={"check_same_thread": False}, echo=False)
 

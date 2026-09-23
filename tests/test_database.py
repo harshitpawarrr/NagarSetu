@@ -15,7 +15,8 @@ BACKEND_DIR = ROOT_DIR / "backend"
 if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
-from sqlalchemy import inspect
+from sqlalchemy import inspect, create_engine
+from sqlalchemy.orm import sessionmaker
 from app.db.session import SessionLocal, engine
 from app.db.init_db import create_tables, verify_schema
 from app.models.taxonomy import Department, Category
@@ -226,5 +227,108 @@ class TestDatabaseModels(unittest.TestCase):
         self.assertIsInstance(r.top_categories, list)
 
 
+class TestDatabaseStartupAndIdempotency(unittest.TestCase):
+    """
+    Verification tests for production startup initialization:
+    - Verifies URL normalization for Render PostgreSQL and legacy URLs.
+    - Verifies idempotent initialization on a fresh database.
+    - Verifies repeating initialization does not duplicate records or drop tables.
+    - Verifies health check reports the active database engine and verified tables.
+    - Verifies GET /api/v1/complaints succeeds against initialized database.
+    """
+
+    def setUp(self):
+        import tempfile
+        self.temp_dir = tempfile.mkdtemp()
+        self.db_path = Path(self.temp_dir) / "test_init.db"
+        self.test_engine = create_engine(f"sqlite:///{self.db_path}", connect_args={"check_same_thread": False})
+        self.test_session_factory = sessionmaker(autocommit=False, autoflush=False, bind=self.test_engine)
+
+    def tearDown(self):
+        import shutil
+        self.test_engine.dispose()
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_url_normalization(self):
+        """Verify URL normalization for Render (postgres://) and standard URLs."""
+        from app.db.session import normalize_db_url
+        self.assertEqual(
+            normalize_db_url("postgres://user:pass@dpg-xxx.render.com/db"),
+            "postgresql+psycopg2://user:pass@dpg-xxx.render.com/db"
+        )
+        self.assertEqual(
+            normalize_db_url("postgresql://user:pass@dpg-xxx.render.com/db"),
+            "postgresql+psycopg2://user:pass@dpg-xxx.render.com/db"
+        )
+        self.assertEqual(
+            normalize_db_url("postgresql+asyncpg://user:pass@host/db"),
+            "postgresql+psycopg2://user:pass@host/db"
+        )
+        self.assertEqual(
+            normalize_db_url("sqlite:///data/test.db"),
+            "sqlite:///data/test.db"
+        )
+
+    def test_fresh_database_initialization(self):
+        """Verify a fresh empty database gets all tables and baseline seed data."""
+        from app.db.init_db import init_database_and_seed
+        res = init_database_and_seed(bind_engine=self.test_engine, session_factory=self.test_session_factory)
+        self.assertEqual(res["status"], "verified")
+        self.assertGreaterEqual(res["total_tables"], 11)
+
+        with self.test_session_factory() as db:
+            dept_count = db.query(Department).count()
+            complaint_count = db.query(RawComplaint).count()
+            gazetteer_count = db.query(LocalityGazetteer).count()
+            self.assertGreaterEqual(dept_count, 8)
+            self.assertGreaterEqual(complaint_count, 30)
+            self.assertGreaterEqual(gazetteer_count, 10)
+
+    def test_idempotent_reinitialization(self):
+        """Verify running initialization twice does NOT duplicate data or drop tables."""
+        from app.db.init_db import init_database_and_seed
+        # First initialization
+        init_database_and_seed(bind_engine=self.test_engine, session_factory=self.test_session_factory)
+        with self.test_session_factory() as db:
+            dept_count_1 = db.query(Department).count()
+            complaint_count_1 = db.query(RawComplaint).count()
+            gazetteer_count_1 = db.query(LocalityGazetteer).count()
+
+        # Second initialization
+        init_database_and_seed(bind_engine=self.test_engine, session_factory=self.test_session_factory)
+        with self.test_session_factory() as db:
+            dept_count_2 = db.query(Department).count()
+            complaint_count_2 = db.query(RawComplaint).count()
+            gazetteer_count_2 = db.query(LocalityGazetteer).count()
+
+        self.assertEqual(dept_count_1, dept_count_2, "Department records must not be duplicated")
+        self.assertEqual(complaint_count_1, complaint_count_2, "Complaint records must not be duplicated")
+        self.assertEqual(gazetteer_count_1, gazetteer_count_2, "Gazetteer records must not be duplicated")
+
+    def test_health_reports_engine_and_tables(self):
+        """Verify /health endpoint returns active database engine and verified table count."""
+        from app.main import health_check
+        health = health_check()
+        self.assertEqual(health["status"], "healthy")
+        self.assertEqual(health["checks"]["database"], "healthy")
+        self.assertEqual(health["checks"]["database_tables"], "all_present")
+        self.assertIn("database_engine", health["details"])
+        self.assertIn(health["details"]["database_engine"], ("sqlite", "postgresql"))
+        self.assertGreaterEqual(health["details"]["tables_verified"], 11)
+
+    def test_complaints_endpoint_returns_data(self):
+        """Verify GET /api/v1/complaints succeeds against initialized database with 200 OK."""
+        from fastapi.testclient import TestClient
+        from app.main import app
+        client = TestClient(app)
+        response = client.get("/api/v1/complaints")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("data", data)
+        self.assertIn("pagination", data)
+        self.assertGreater(data["pagination"]["total_records"], 0)
+
+
 if __name__ == "__main__":
     unittest.main()
+

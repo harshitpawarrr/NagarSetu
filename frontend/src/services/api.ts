@@ -3,8 +3,30 @@
  * Handles communication with FastAPI backend endpoints.
  */
 
-// @ts-ignore
-const API_BASE = import.meta.env.VITE_API_URL || (typeof window !== 'undefined' ? '/api/v1' : 'http://localhost:8000/api/v1');
+/**
+ * Resolves and normalizes the API base URL.
+ * Supports VITE_API_URL and VITE_API_BASE_URL (preferring VITE_API_URL).
+ * Normalizes trailing slashes and ensures /api/v1 is appended exactly once.
+ */
+export function resolveApiBase(
+  envUrl?: string,
+  envBaseUrl?: string,
+  isWindowDefined: boolean = typeof window !== 'undefined'
+): string {
+  const candidate = (envUrl || envBaseUrl || '').trim();
+  if (candidate) {
+    const clean = candidate.replace(/\/+$/, '');
+    return clean.endsWith('/api/v1') ? clean : `${clean}/api/v1`;
+  }
+  return isWindowDefined ? '/api/v1' : 'http://localhost:8000/api/v1';
+}
+
+const metaEnv = typeof import.meta !== 'undefined' ? (import.meta as any).env : undefined;
+
+export const API_BASE = resolveApiBase(
+  metaEnv?.VITE_API_URL,
+  metaEnv?.VITE_API_BASE_URL
+);
 
 export async function fetchComplaints(params: {
   page?: number;

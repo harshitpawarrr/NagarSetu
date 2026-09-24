@@ -328,6 +328,26 @@ class TestDatabaseStartupAndIdempotency(unittest.TestCase):
         self.assertIn("pagination", data)
         self.assertGreater(data["pagination"]["total_records"], 0)
 
+    def test_cors_allowed_origins(self):
+        """Verify CORS allows production Vercel frontend origin and localhost origins."""
+        from app.core.config import settings
+        self.assertIn("https://nagar-setu-psi.vercel.app", settings.ALLOWED_ORIGINS)
+        self.assertIn("http://localhost:5173", settings.ALLOWED_ORIGINS)
+        self.assertIn("http://127.0.0.1:5173", settings.ALLOWED_ORIGINS)
+        self.assertNotIn("*", settings.ALLOWED_ORIGINS)
+
+        from fastapi.testclient import TestClient
+        from app.main import app
+        client = TestClient(app)
+        # Test OPTIONS preflight with Vercel origin
+        headers = {
+            "Origin": "https://nagar-setu-psi.vercel.app",
+            "Access-Control-Request-Method": "GET"
+        }
+        res = client.options("/api/v1/status", headers=headers)
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.headers.get("access-control-allow-origin"), "https://nagar-setu-psi.vercel.app")
+
 
 if __name__ == "__main__":
     unittest.main()

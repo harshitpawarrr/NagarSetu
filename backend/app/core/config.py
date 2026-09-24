@@ -26,7 +26,10 @@ class Settings:
     # CORS
     ALLOWED_ORIGINS: List[str] = [
         origin.strip()
-        for origin in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
+        for origin in os.getenv(
+            "ALLOWED_ORIGINS",
+            "http://localhost:5173,http://127.0.0.1:5173,https://nagar-setu-psi.vercel.app"
+        ).split(",")
         if origin.strip()
     ]
 
